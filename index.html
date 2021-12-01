@@ -1,91 +1,90 @@
-
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- Script Autocomplete API Google Maps Placer -->
-    <script src="js/nuevo.js"></script>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Hello, world!</title>
-  </head>
-  <body>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Script Autocomplete API Google Maps Placer -->
+  <script src="js/nuevo.js"></script>
 
-<div class="container">
+  <title>|REC-Calculadora|</title>
+</head>
 
+<body>
 
-  <div class="card">
+  <div class="container">
+    <div class="card mt-4 mb-4">
+      <div class="card-header text-center">
+        <img class="" src="img/logo.png" width="30%" alt="Card image cap">
+      </div>
+      <div class="card-body">
+        <form class="mt-4">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Lugar de Recoleccion</label>
+            <div id="locationField">
+              <input id="originautocomplete" class="form-control" placeholder="Ingrese direccion de Recolección"
+                onFocus="geolocate()" type="text"></input>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Direccion de Entrega</label>
+            <div id="locationField">
+              <input id="destinationautocomplete" class="form-control" placeholder="Escriba dirección de Entrega"
+                onFocus="geolocate()" type="text"></input>
+            </div>
+          </div>
+          <input type='button' class="btn btn-primary" value="Calcular costos" onclick="CalculatedRecommededDistance()"></input>
+        </form>
+      </div>
+      <div class="card-footer">
+        <!-- HIDDEN   -->
+        <hr>
+        <div>
+          <strong>Detalles de la Consulta:</strong>
+        </div>
+        <div id="outputRecommended">
 
-<div class="card-header text-center">
-  <img class="" src="img/logo.png" width="30%"  alt="Card image cap">
-</div>
-<div class="card-body">
-  <form class="mt-4">
-    <div class="form-group">
-      <label for="exampleInputEmail1">Lugar de Recoleccion</label>
-      <div id="locationField">
-        <input id="originautocomplete"  class="form-control" placeholder="Ingrese direccion de Recolección" onFocus="geolocate()" type="text"></input>
+        </div>
+        <hr>
+        <div>
+          <strong>Distancia recorrida en KM: </strong>
+        </div>
+        <div id="output">
+
+        </div>
+        <hr>
+        <div>
+          <strong>Costo de entrega por KM Recorrido: </strong>
+        </div>
+        <div id="outputcosto">
+
+        </div>
       </div>
     </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Direccion de Entrega</label>
-      <div id="locationField">
-        <input id="destinationautocomplete" class="form-control" placeholder="Escriba dirección de Entrega" onFocus="geolocate()" type="text"></input>
-      </div>
-    </div>
-
-    <input type='button' class="btn btn-primary" value="Calcular costos" onclick="CalculatedRecommededDistance()"></input>
-
-  </form>
-
-  <!-- HIDDEN   -->
-<hr>
-  <div>
-    <strong>Detalles de la Consulta:</strong>
-  </div>
-  <div id="outputRecommended">
-
-  </div>
-  -
-  <hr>
-  <div>
-    <strong>Distancia recorrida en KM: </strong>
-  </div>
-  <div id="output">
-
-  </div>
-  <hr>
-  <div>
-    <strong>Costo de entrega por KM Recorrido: </strong>
-  </div>
-  <div id="outputcosto">
-
-  </div>
-</div>
-
   </div>
 
-</div>
 
+  <!-- Replace the value of the key parameter with your own API key. -->
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYsu1xGHadXSRSVC9Er-f8lg4Ka2G8wHY&libraries=places&callback=initAutocomplete"
+    async defer></script>
 
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+</body>
 
-      
-      
-      <!-- Replace the value of the key parameter with your own API key. -->
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYsu1xGHadXSRSVC9Er-f8lg4Ka2G8wHY&libraries=places&callback=initAutocomplete" async defer></script>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
 </html>
-
-
-
-
