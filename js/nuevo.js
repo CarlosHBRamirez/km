@@ -88,14 +88,10 @@ function CalculatedRecommededDistance() {
                 output.innerHTML += originList[i] + ' to ' + destinationList[j] +
                 ': ' + results[j].distance.text + ' in ' +
                 results[j].duration.text + '<br>';
-        
         }
-    }
-
-        
+    }       
     });
 }
-
 function CalculateDistanceforAllAlternativeRoutes() {
     var directionsService = new google.maps.DirectionsService();
     var start = document.getElementById('originautocomplete').value;
@@ -109,7 +105,6 @@ function CalculateDistanceforAllAlternativeRoutes() {
         unitSystem: google.maps.UnitSystem.METRIC,
         optimizeWaypoints: true
     };
-
     directionsService.route(request, function (response, status) {
         var routes = response.routes;
         var distances = [];
@@ -130,28 +125,26 @@ function CalculateDistanceforAllAlternativeRoutes() {
         //Display distance having highest value.
        
         var outputcostoDiv = document.getElementById('outputcosto');
-
         var output = document.getElementById('output');
         output.innerHTML = maxDistance[routes.length - 2] + " KM";
-        if(maxDistance[routes.length - 2] == undefined){
+        if(maxDistance[routes.length - 3] == undefined){
             output.innerHTML = "0 - 500 mts aprox";
         }
-
-        if (maxDistance[routes.length - 1] < '1') {
+        if (maxDistance[routes.length - 3] < '1') {
             outputcostoDiv.innerHTML = '$35';
-        } else if (maxDistance[routes.length - 2] > '1' && maxDistance[routes.length - 2] <= '2.9') {
+        } else if (maxDistance[routes.length - 3] > '1' && maxDistance[routes.length - 3] <= '2.9') {
             outputcostoDiv.innerHTML = '$40';
-        } else if (maxDistance[routes.length - 2] > '3' && maxDistance[routes.length - 2] <= '4.9') {
+        } else if (maxDistance[routes.length - 3] > '3' && maxDistance[routes.length - 3] <= '4.9') {
             outputcostoDiv.innerHTML = '$45';
-        } else if (maxDistance[routes.length - 2] > '5' && maxDistance[routes.length - 2] <= '6.9') {
+        } else if (maxDistance[routes.length - 3] > '5' && maxDistance[routes.length - 3] <= '6.9') {
             outputcostoDiv.innerHTML = '$50';
-        } else if (maxDistance[routes.length - 2] > '7' && maxDistance[routes.length - 2] <= '8.9') {
+        } else if (maxDistance[routes.length - 3] > '7' && maxDistance[routes.length - 3] <= '8.9') {
             outputcostoDiv.innerHTML = '$55';
-        } else if (maxDistance[routes.length - 2] > '9' && maxDistance[routes.length - 2] <= '10.9') {
+        } else if (maxDistance[routes.length - 3] > '9' && maxDistance[routes.length - 3] <= '10.9') {
             outputcostoDiv.innerHTML = '$60';
-        } else if (maxDistance[routes.length - 2] > '11' && maxDistance[routes.length - 1] < '12.9') {
+        } else if (maxDistance[routes.length - 3] > '11' && maxDistance[routes.length - 3] < '12.9') {
             outputcostoDiv.innerHTML = '$65';
-        } else if (maxDistance[routes.length - 1] > '13') {
+        } else if (maxDistance[routes.length - 3] > '13') {
             outputcostoDiv.innerHTML = 'Libre';
         } else {
             outputcostoDiv.innerHTML = "$0";
