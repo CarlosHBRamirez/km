@@ -80,7 +80,7 @@ function CalculatedRecommededDistance() {
         var destinationList = response.destinationAddresses;
         var output = document.getElementById('outputRecommended');
         
-        output.innerHTML = '0';
+        output.innerHTML = '';
         //Display distance recommended value
         for (var i = 0; i < originList.length; i++) {
             var results = response.rows[i].elements;
@@ -127,24 +127,40 @@ function CalculateDistanceforAllAlternativeRoutes() {
         var outputcostoDiv = document.getElementById('outputcosto');
         var output = document.getElementById('output');
         output.innerHTML = maxDistance[routes.length - 2] + " KM";
-        if(maxDistance[routes.length - 3] == undefined){
-            output.innerHTML = "0 - 500 mts aprox";
-        }
-        if (maxDistance[routes.length - 3] < '1') {
+
+               if(maxDistance[routes.length - 2] == 'undefined' && maxDistance[routes.length - 3] <= 0.499){
+            outputcostoDiv.innerHTML = '$25';
+        } else if (maxDistance[routes.length - 2] >= 0.500 && maxDistance[routes.length - 3] <= 0.999) {
+            outputcostoDiv.innerHTML = '$30';
+        } else if (maxDistance[routes.length - 2] >= 1.0 && maxDistance[routes.length - 3] <= 2.9) {
             outputcostoDiv.innerHTML = '$35';
-        } else if (maxDistance[routes.length - 3] > '1' && maxDistance[routes.length - 3] <= '2.9') {
+        } else if (maxDistance[routes.length - 2] >= 3.0 && maxDistance[routes.length - 3] <= 4.9) {
             outputcostoDiv.innerHTML = '$40';
-        } else if (maxDistance[routes.length - 3] > '3' && maxDistance[routes.length - 3] <= '4.9') {
+        } else if (maxDistance[routes.length - 2] >= 5.0 && maxDistance[routes.length - 2] <= 6.9) {
             outputcostoDiv.innerHTML = '$45';
-        } else if (maxDistance[routes.length - 3] > '5' && maxDistance[routes.length - 3] <= '6.9') {
+        } else if (maxDistance[routes.length - 2] >= 7.0 && maxDistance[routes.length - 2] <= 8.9) {
             outputcostoDiv.innerHTML = '$50';
-        } else if (maxDistance[routes.length - 3] > '7' && maxDistance[routes.length - 3] <= '8.9') {
+        } else if (maxDistance[routes.length - 2] >= 9.0 && maxDistance[routes.length - 2] <= 10.9) {
             outputcostoDiv.innerHTML = '$55';
-        } else if (maxDistance[routes.length - 3] > '9' && maxDistance[routes.length - 3] <= '10.9') {
+        } else if (maxDistance[routes.length - 2] >= 11.0 && maxDistance[routes.length - 2] <= 12.9) {
             outputcostoDiv.innerHTML = '$60';
-        } else if (maxDistance[routes.length - 3] > '11' && maxDistance[routes.length - 3] < '12.9') {
+        } else if (maxDistance[routes.length - 2] >= 13.0 && maxDistance[routes.length - 2] <= 14.9) {
             outputcostoDiv.innerHTML = '$65';
-        } else if (maxDistance[routes.length - 3] > '13') {
+        } else if (maxDistance[routes.length - 2] >= 15.0 && maxDistance[routes.length - 2] <= 16.9) {
+            outputcostoDiv.innerHTML = '$70';
+        } else if (maxDistance[routes.length - 2] >= 17.0 && maxDistance[routes.length - 2] <= 18.9) {
+            outputcostoDiv.innerHTML = '$75';
+        } else if (maxDistance[routes.length - 2] >= 19.0 && maxDistance[routes.length - 2] <= 20.9) {
+            outputcostoDiv.innerHTML = '$80';
+        } else if (maxDistance[routes.length - 2] >= 21.0 && maxDistance[routes.length - 2] <= 22.9) {
+            outputcostoDiv.innerHTML = '$85';
+        } else if (maxDistance[routes.length - 2] >= 23.0 && maxDistance[routes.length - 2] <= 24.9) {
+            outputcostoDiv.innerHTML = '$90';
+        } else if (maxDistance[routes.length - 2] >= 25.0 && maxDistance[routes.length - 2] <= 26.9) {
+            outputcostoDiv.innerHTML = '$95';
+        } else if (maxDistance[routes.length - 2] >= 27.0 && maxDistance[routes.length - 2] <= 27.9) {
+            outputcostoDiv.innerHTML = '$100';
+        } else if (maxDistance[routes.length - 2] >= 28.0) {
             outputcostoDiv.innerHTML = 'Libre';
         } else {
             outputcostoDiv.innerHTML = "$0";
